@@ -1,11 +1,15 @@
+import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import { UserContext } from "../../context/UserContext"
 
 export default function Logout() {
+    const { setUserCTX } = useContext(UserContext)
     const navigate = useNavigate()
     function logout() {
         localStorage.removeItem('userId')
         localStorage.removeItem('token')
         navigate('/')
+        setUserCTX({})
     }
 
     return (
