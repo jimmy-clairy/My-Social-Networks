@@ -3,8 +3,28 @@ import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
+import { getUser } from './utils/fetchAPI'
+import { useContext, useEffect } from 'react'
+import { UserContext } from './context/UserContext'
 
 export default function App() {
+    const { setUserCTX } = useContext(UserContext)
+
+    const userId = JSON.parse(localStorage.getItem('userId'))
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    useEffect(() => {
+
+        async function getInfo() {
+            if (userId && token) {
+                setUserCTX(await getUser(userId, token))
+                await getAllPosts()
+            }
+        }
+        getInfo()
+
+    }, [])
+
     return (
         <BrowserRouter>
             <NavBar />

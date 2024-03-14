@@ -1,8 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import fetchData from "../../utils/fetchData"
-import { LOGIN_URL, SIGNUP_URL } from "../../utils/API_URL"
-import login from "../../utils/login"
+import { login, signup } from "../../utils/fetchAPI"
 
 export default function SignUp() {
     const [pseudo, setPseudo] = useState('')
@@ -24,16 +22,9 @@ export default function SignUp() {
 
             const user = { pseudo, email, password }
 
-            const url = SIGNUP_URL;
-            const options = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(user)
-            };
+            await signup(user)
 
-            await fetchData(url, options)
-
-            await login(user, LOGIN_URL)
+            await login(user)
 
             navigate('/home')
         } catch (error) {

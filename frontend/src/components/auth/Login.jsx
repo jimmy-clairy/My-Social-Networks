@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { LOGIN_URL } from "../../utils/API_URL"
-import login from "../../utils/login"
+import { login } from "../../utils/fetchAPI"
 
 export default function SignUp() {
     const [email, setEmail] = useState('')
@@ -15,7 +14,7 @@ export default function SignUp() {
         try {
             const user = { email, password }
 
-            await login(user, LOGIN_URL)
+            await login(user)
 
             navigate('/home')
         } catch (err) {
