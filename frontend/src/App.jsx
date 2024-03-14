@@ -1,9 +1,17 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Auth from './pages/Auth'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+
 export default function App() {
     return (
-        <div className="container-main">
-            <h1 className=" bg-red-400 text-2xl px-4 py-2 rounded mt-4">
-                Hello world!
-            </h1>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Auth />} />
+                <Route path='/home' element={<Home />} />
+                <Route path='/profile/:id' element={<Profile />} />
+                <Route path='*' element={<Auth />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
