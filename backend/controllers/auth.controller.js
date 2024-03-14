@@ -29,7 +29,7 @@ module.exports.signUp = async (req, res) => {
         }
 
         if (Object.keys(errors).length !== 0) {
-            return res.status(400).json({ errors })
+            throw errors
         }
 
         const hash = await bcrypt.hash(password, 10);

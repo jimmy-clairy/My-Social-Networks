@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color--primary: rgb(34, 197, 94)
+}
+
 body {
   background-color: #222;
   color: #fff;
@@ -10,4 +14,21 @@ body {
 .container-main {
   margin: auto;
   max-width: 600px;
+}
+
+.error-message {
+  color: crimson;
+}
+
+.btn {
+  min-width: 80px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  color: var(--color--primary);
+  background-color: white;
 }
