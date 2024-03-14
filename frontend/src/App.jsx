@@ -18,7 +18,6 @@ export default function App() {
         async function getInfo() {
             if (userId && token) {
                 setUserCTX(await getUser(userId, token))
-                await getAllPosts()
             }
         }
         getInfo()
