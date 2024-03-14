@@ -24,8 +24,8 @@ export default function Home() {
     return (
         <>
             {token && userId ?
-                <div className="mt-4 mx-auto max-w-xl p-2 text-center text-2xl bg-green-400  rounded">Home</div> :
-                <div className="mt-4 mx-auto max-w-xl p-2 text-center text-2xl bg-red-400  rounded">Home</div>}
+                <div className="mt-4 mx-auto max-w-xl p-2 text-center text-2xl bg-cyan-500 shadow-lg shadow-cyan-500/50  rounded">Home</div> :
+                <div className="mt-4 mx-auto max-w-xl p-2 text-center text-2xl bg-green-500 shadow-lg shadow-green-500/50  rounded">Home</div>}
         </>
 
     )

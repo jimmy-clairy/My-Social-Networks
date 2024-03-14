@@ -9,7 +9,7 @@ export default function Auth() {
     }
 
     return (
-        <div className="mt-8 mx-auto max-w-lg p-8  bg-slate-700 rounded">
+        <div className="mt-8 mx-auto max-w-xl p-8  bg-slate-700 shadow-lg shadow-slate-700/50  rounded">
             <h2 className="text-2xl text-center">Authentification</h2>
             <button
                 onClick={handleClick}
