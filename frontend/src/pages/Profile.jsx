@@ -1,10 +1,10 @@
 import { useContext } from "react"
-import { Context } from "../context"
+import { Context } from "../context/Context"
 import userPicture from '/uploads/profil/random-user.png'
 
 export default function Profile() {
     const { userCTX } = useContext(Context)
-    console.log(userCTX);
+
     return (
         <>
             <div className="mt-4 mx-auto max-w-2xl p-2 text-center text-2xl bg-violet-500 shadow-lg shadow-violet-500/50  rounded">

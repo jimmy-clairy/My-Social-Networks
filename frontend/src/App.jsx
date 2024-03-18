@@ -5,7 +5,7 @@ import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
 import { getUser } from './utils/fetchAPI'
 import { useContext, useEffect } from 'react'
-import { Context } from './context'
+import { Context } from './context/Context'
 
 export default function App() {
     const { setUserCTX } = useContext(Context)

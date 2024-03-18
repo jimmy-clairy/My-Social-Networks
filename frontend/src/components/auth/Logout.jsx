@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { Context } from "../../context"
+import { Context } from "../../context/Context"
 
 export default function Logout() {
     const { setUserCTX } = useContext(Context)
