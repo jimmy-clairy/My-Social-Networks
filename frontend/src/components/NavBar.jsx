@@ -7,7 +7,7 @@ import { UserContext } from '../context/UserContext'
 export default function NavBar() {
     console.log('NavBar');
     const { userCTX } = useContext(UserContext)
-    console.log(userCTX.picture);
+    console.log(userCTX.pseudo);
     return (
         <nav className=' bg-green-500 px-10 py-3'>
             <div className='mx-auto max-w-xl flex gap-2 items-center justify-between'>
@@ -15,7 +15,7 @@ export default function NavBar() {
                 <img className=' rounded object-cover w-10 h-10' src={userCTX.picture ? `${userCTX.picture}` : userPicture} alt="user-picture" />
                 <Link className='btn' to='/'>Auth</Link>
                 <Link className='btn' to='/home'>Home</Link>
-                <Link className='btn' to='/profile'>Profile</Link>
+                {userCTX.pseudo && <Link className='btn' to='/profile'>Profile</Link>}
                 <Logout />
             </div>
         </nav>
