@@ -5,10 +5,10 @@ import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
 import { getUser } from './utils/fetchAPI'
 import { useContext, useEffect } from 'react'
-import { UserContext } from './context/UserContext'
+import { Context } from './context'
 
 export default function App() {
-    const { setUserCTX } = useContext(UserContext)
+    const { setUserCTX } = useContext(Context)
 
     const userId = JSON.parse(localStorage.getItem('userId'))
     const token = JSON.parse(localStorage.getItem('token'))

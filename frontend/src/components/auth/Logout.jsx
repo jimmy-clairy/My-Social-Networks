@@ -1,9 +1,9 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../../context/UserContext"
+import { Context } from "../../context"
 
 export default function Logout() {
-    const { setUserCTX } = useContext(UserContext)
+    const { setUserCTX } = useContext(Context)
     const navigate = useNavigate()
     function logout() {
         localStorage.removeItem('userId')

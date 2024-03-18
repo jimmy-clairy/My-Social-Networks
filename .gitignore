@@ -1,6 +1,7 @@
 # Config
 .env
 profil
+uploads
 
 # Logs
 logs
