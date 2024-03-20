@@ -20,7 +20,7 @@ export const login = async (user) => {
         const data = await fetchData(LOGIN_URL, options);
 
         // Store the login information in local storage
-        setLocaleStorage('userid', data.userId)
+        setLocaleStorage('userId', data.userId)
         setLocaleStorage('token', data.token)
 
         return data;
