@@ -3,7 +3,7 @@ import { Context } from "../context/Context";
 import Card from "../components/Card";
 import FormAddPost from "../components/FormAddPost";
 import { getUser } from "../api/user.api";
-import { getAllPosts } from "../api/post.api";
+import { deleteOnePost, getAllPosts } from "../api/post.api";
 import { getLocaleStorage } from "../utils/localeStorage";
 
 export default function Home() {
@@ -23,9 +23,11 @@ export default function Home() {
     }, [])
 
 
-    function deletePost(id) {
+    async function deletePost(id) {
         const postsFilter = postsCTX.filter((post) => post._id !== id)
         setPostsCTX(postsFilter)
+
+        await deleteOnePost(id, token)
     }
 
     return (
