@@ -22,6 +22,12 @@ export default function Home() {
         getInfo()
     }, [])
 
+
+    function deletePost(id) {
+        const postsFilter = postsCTX.filter((post) => post._id !== id)
+        setPostsCTX(postsFilter)
+    }
+
     return (
         <>
             {token && userId ?
@@ -30,7 +36,7 @@ export default function Home() {
 
             <FormAddPost />
 
-            {postsCTX.map((post) => <Card key={post._id} post={post} />)}
+            {postsCTX.map((post) => <Card key={post._id} post={post} deletePost={deletePost} />)}
         </>
     )
 }
