@@ -6,12 +6,13 @@ import NavBar from './components/NavBar'
 import { useContext, useEffect } from 'react'
 import { Context } from './context/Context'
 import { getUser } from './api/user.api'
+import { getLocaleStorage } from './utils/localeStorage'
 
 export default function App() {
     const { setUserCTX } = useContext(Context)
 
-    const userId = JSON.parse(localStorage.getItem('userId'))
-    const token = JSON.parse(localStorage.getItem('token'))
+    const userId = getLocaleStorage('userId')
+    const token = getLocaleStorage('token')
 
     useEffect(() => {
 

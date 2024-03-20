@@ -1,3 +1,4 @@
+import { setLocaleStorage } from "../utils/localeStorage";
 import { LOGIN_URL, SIGNUP_URL } from "./API_URL";
 import fetchData from "./fetchData";
 
@@ -19,8 +20,8 @@ export const login = async (user) => {
         const data = await fetchData(LOGIN_URL, options);
 
         // Store the login information in local storage
-        localStorage.setItem('userId', JSON.stringify(data.userId));
-        localStorage.setItem('token', JSON.stringify(data.token));
+        setLocaleStorage('userid', data.userId)
+        setLocaleStorage('token', data.token)
 
         return data;
     } catch (error) {
