@@ -49,3 +49,27 @@ export async function getAllPosts() {
         throw error;
     }
 }
+
+/**
+ * Deletes a post by its ID.
+ * @param {string} postId - The ID of the post to delete.
+ * @param {string} token - The authorization token.
+ * @returns {Promise<any>} A promise that resolves with the deleted post data.
+ * @throws {Error} If an error occurs during the deletion process.
+ */
+export async function deleteOnePost(postId, token) {
+    const url = POST_URL + postId
+    const options = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
+    };
+
+    try {
+        const data = await fetchData(url, options)
+
+        return data
+    } catch (error) {
+        console.error('Erreur lors de la suppréssion d\'un post:', error);
+        throw error;
+    }
+}
