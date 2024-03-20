@@ -27,7 +27,7 @@ module.exports.uploadPicture = async (userId, file, type = 'profil', maxSizeFile
     }
 
     // Create destination folder if it doesn't exist
-    const destinationFolder = `${process.env.PATH_PICTURE}/${type}`;
+    const destinationFolder = `../frontend/public/uploads/${type}`;
     await fsPromises.mkdir(destinationFolder, { recursive: true });
 
     // Set file name
