@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { login, signup } from "../../utils/fetchAPI"
+import { login, signup } from "../../api/auth.api"
 
 export default function SignUp() {
     const [pseudo, setPseudo] = useState('')

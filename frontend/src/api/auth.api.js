@@ -1,4 +1,4 @@
-import { GET_POST_URL, GET_USER_URL, LOGIN_URL, SIGNUP_URL } from "./API_URL";
+import { LOGIN_URL, SIGNUP_URL } from "./API_URL";
 import fetchData from "./fetchData";
 
 /**
@@ -49,54 +49,6 @@ export const signup = async (user) => {
         return data;
     } catch (error) {
         console.error('Erreur lors de l\'inscription :', error);
-        throw error;
-    }
-}
-
-/**
- * Retrieves user data based on user ID and token.
- * @param {string} userId - The ID of the user to retrieve data for.
- * @param {string} token - The authentication token.
- * @returns {Promise<object>} A promise resolving to the user data.
- * @throws {Error} Throws an error if user data retrieval fails.
- */
-export const getUser = async (userId, token) => {
-
-    const url = GET_USER_URL + userId;
-
-    const options = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
-    };
-
-    try {
-        const data = await fetchData(url, options)
-
-        return data
-    } catch (error) {
-        console.error('Erreur lors de la récupération de l\'utilisateur :', error)
-        throw error;
-    }
-}
-
-/**
- * Retrieves all posts.
- * @returns {Promise<object>} A promise resolving to the post data.
- * @throws {Error} Throws an error if post retrieval fails.
- */
-export async function getAllPosts() {
-
-    const options = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-    };
-
-    try {
-        const data = await fetchData(GET_POST_URL, options)
-
-        return data
-    } catch (error) {
-        console.error('Erreur lors de la récupération de tous les articles :', error);
         throw error;
     }
 }

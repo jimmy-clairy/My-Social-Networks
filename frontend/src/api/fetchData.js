@@ -10,7 +10,7 @@ export default async function fetchData(url, options = {}) {
         return data;
 
     } catch (error) {
-        console.error(error);
+        console.error(`Erreur lors de la requête vers ${url}:`, error);
         throw error
     }
 }

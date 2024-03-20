@@ -3,9 +3,9 @@ import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
-import { getUser } from './utils/fetchAPI'
 import { useContext, useEffect } from 'react'
 import { Context } from './context/Context'
+import { getUser } from './api/user.api'
 
 export default function App() {
     const { setUserCTX } = useContext(Context)
