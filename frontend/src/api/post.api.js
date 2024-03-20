@@ -69,7 +69,7 @@ export async function deleteOnePost(postId, token) {
 
         return data
     } catch (error) {
-        console.error('Erreur lors de la suppréssion d\'un post:', error);
+        console.error('Erreur lors de la suppression d\'un post:', error);
         throw error;
     }
 }
