@@ -6,10 +6,10 @@ const ContextProvider = ({ children }) => {
 
     const [userCTX, setUserCTX] = useState({})
     const [postsCTX, setPostsCTX] = useState([])
-    const [stateCTX, setStateCTX] = useState(false)
+    console.log('Context');
 
     return (
-        <Context.Provider value={{ userCTX, setUserCTX, postsCTX, setPostsCTX, stateCTX, setStateCTX }}>
+        <Context.Provider value={{ userCTX, setUserCTX, postsCTX, setPostsCTX }}>
             {children}
         </Context.Provider>
     )
