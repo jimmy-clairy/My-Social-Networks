@@ -1,9 +1,13 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { login } from "../../api/auth.api"
+import { Context } from "../../context/Context"
+import { getUser } from "../../api/user.api"
+import { getAllPosts } from "../../api/post.api"
 
 
 export default function SignUp() {
+    const { setUserCTX, setPostsCTX } = useContext(Context)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
@@ -15,7 +19,11 @@ export default function SignUp() {
         try {
             const user = { email, password }
 
-            await login(user)
+            const { userId, token } = await login(user)
+
+            // Save in Context
+            setUserCTX(await getUser(userId, token))
+            setPostsCTX(await getAllPosts())
 
             navigate('/home')
         } catch (err) {
