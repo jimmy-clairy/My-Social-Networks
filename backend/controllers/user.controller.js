@@ -41,9 +41,9 @@ module.exports.updateOneUser = async (req, res) => {
             throw new Error('Unauthorized: You are not allowed to update this user.')
         }
 
-        if (!req.body.bio && !req.file) {
-            throw new Error('No data provided for creating the post')
-        }
+        // if (!req.body.bio && !req.file) {
+        //     throw new Error('No data provided for creating the post')
+        // }
 
         let picture
         if (file) {
