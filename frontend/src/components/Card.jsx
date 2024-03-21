@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../context/Context";
-import { BsTrash3, BsHeart } from "react-icons/bs";
+import { BsTrash3, BsHeart, BsHeartFill } from "react-icons/bs";
 
 export default function Card({ post, deletePost }) {
     const { userCTX } = useContext(Context)
+    const [like, setLike] = useState(true)
+
+    function likeOrUnlike() {
+        setLike(!like)
+    }
 
     return (
         <div className="mt-4 mx-auto max-w-2xl p-2 bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded flex gap-2">
@@ -14,7 +19,11 @@ export default function Card({ post, deletePost }) {
                     <p>{post.message}</p>
                 </div>
                 <div className="flex justify-between text-xl">
-                    <BsHeart className="cursor-pointer" />
+                    {like ?
+                        <BsHeart onClick={likeOrUnlike} className="cursor-pointer" /> :
+                        <BsHeartFill onClick={likeOrUnlike} className="cursor-pointer" />
+                    }
+
                     {(userCTX.ifAdmin || userCTX._id === post.posterId) && <BsTrash3 onClick={() => deletePost(post._id)} className="cursor-pointer" />}
                 </div>
             </div>

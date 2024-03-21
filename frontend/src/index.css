@@ -6,6 +6,10 @@
   --color--primary: rgb(34, 197, 94)
 }
 
+* {
+  user-select: none;
+}
+
 body {
   /* background-color: #222; */
   color: #fff;
