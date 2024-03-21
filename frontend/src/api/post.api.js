@@ -22,7 +22,7 @@ export async function createOnePost(token, formData) {
 
         return data
     } catch (error) {
-        console.error('Erreur lors de la créeation d\'un post :', error);
+        console.error('Erreur lors de la création d\'un post :', error);
         throw error;
     }
 }
