@@ -7,23 +7,26 @@ import { useContext, useEffect } from 'react'
 import { Context } from './context/Context'
 import { getUser } from './api/user.api'
 import { getLocaleStorage } from './utils/localeStorage'
+import { getAllPosts } from './api/post.api'
 
 export default function App() {
-    const { setUserCTX } = useContext(Context)
+    const { setUserCTX, setPostsCTX } = useContext(Context)
 
     const userId = getLocaleStorage('userId')
     const token = getLocaleStorage('token')
 
     useEffect(() => {
 
-        async function getInfo() {
+        async function saveInfo() {
             if (userId && token) {
+                // Save in Context
                 setUserCTX(await getUser(userId, token))
+                setPostsCTX(await getAllPosts())
             }
         }
-        getInfo()
+        saveInfo()
 
-    }, [])
+    }, [userId, token])
 
     return (
         <BrowserRouter>
