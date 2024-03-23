@@ -11,7 +11,7 @@ export default function Card({ post, deletePost }) {
     }
 
     return (
-        <div className="mt-4 mx-auto max-w-2xl p-2 bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded flex gap-2">
+        <div className="my-4 mx-auto max-w-2xl p-2 bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded flex gap-2">
             <img className="rounded" src={post.picture} alt="post-picture" width={220} />
             <div className="flex flex-col flex-1 justify-between">
                 <div>
