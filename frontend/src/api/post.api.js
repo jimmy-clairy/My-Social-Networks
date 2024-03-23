@@ -9,7 +9,6 @@ import fetchData from "./fetchData";
  * @throws {Error} Throws an error if creating the post fails.
  */
 export async function createOnePost(token, formData) {
-    console.log(token, formData);
 
     const options = {
         method: 'POST',
