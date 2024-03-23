@@ -3,6 +3,7 @@ import { Context } from "../context/Context"
 import randomPicture from '/uploads/profil/random-user.png'
 import { updateOneUser } from "../api/user.api"
 import { getLocaleStorage } from "../utils/localeStorage"
+import DeleteProfile from "../components/DeleteProfile"
 
 export default function Profile() {
     const { userCTX, setUserCTX } = useContext(Context)
@@ -14,7 +15,7 @@ export default function Profile() {
     const [once, setOnce] = useState(true)
     const formRef = useRef(null)
 
-    console.log('profile');
+    // console.log('profile');
     async function handleSubmit(e) {
         e.preventDefault()
 
@@ -92,6 +93,7 @@ export default function Profile() {
                             />
                         </div>
                     </form>
+                    <DeleteProfile />
                 </div>
             </div>
         </>
